@@ -8,7 +8,7 @@ mcp = FastMCP(
     "drama-script-manager",
     transport_security=TransportSecuritySettings(
         enable_dns_rebinding_protection=True,
-        allowed_hosts=["localhost:*", "127.0.0.1:*", "drama-mcp.onrender.com:*"],
+        allowed_hosts=["localhost", "localhost:*", "127.0.0.1", "127.0.0.1:*", "drama-mcp.onrender.com", "drama-mcp.onrender.com:*"],
         allowed_origins=["https://drama-mcp.onrender.com"],
     ),
 )
