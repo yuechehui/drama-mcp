@@ -2,8 +2,16 @@ import json
 import os
 from pathlib import Path
 from mcp.server.fastmcp import FastMCP
+from mcp.server.transport_security import TransportSecuritySettings
 
-mcp = FastMCP("drama-script-manager")
+mcp = FastMCP(
+    "drama-script-manager",
+    transport_security=TransportSecuritySettings(
+        enable_dns_rebinding_protection=True,
+        allowed_hosts=["localhost:*", "127.0.0.1:*", "drama-mcp.onrender.com:*"],
+        allowed_origins=["https://drama-mcp.onrender.com"],
+    ),
+)
 
 DATA_FILE = Path("drama_data.json")
 
